@@ -1,25 +1,43 @@
 package com.company;
 
-public class Main {
+//This is to see if I can really make something work on my owen with no help.
 
-// if the input is string, output this one
-    static double employeeInfo (String name)
-    {
-     System.out.println("Hello" + name + " so glad you are here.");
-     return 1234.2345;
-    }
-
-    //else if input is interger, then output this one
-    static double employeeInfo (int number)
-    {
-        System.out.println("Your number is: " + number);
-        return 2345.3456;
-    }
+import javax.swing.*;
+import java.awt.*;
 
 
+class InnerButton {
+
+    JFrame frame;
+    JButton b;
+
+    //All this is from Exercise p. 395 from book!!
     public static void main(String[] args) {
-	//Add the employee part to get it to do what you need it to do.
-        employeeInfo(258);
-        employeeInfo(" Reggie");
+        InnerButton gui = new innerButton();
+        gui.go();
+    }
+
+    public void go() {
+        frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        b = new JButton("A");
+        b.addActionListener();
+
+        frame.getContentPane().add(BorderLayout.SOUTH, B);
+        frame.setSize(200, 100);
+        frame.setVisible(true);
+    }
+
+    class BListener extends ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (b.getText() .equals("A")) {
+                b.setText("B");
+            } else {
+                b.setText("A");
+
+            }
+        }
+
     }
 }
