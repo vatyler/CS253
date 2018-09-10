@@ -1,43 +1,42 @@
 package com.company;
+// redoing  for class, hope I get it right
 
-//This is to see if I can really make something work on my owen with no help.
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import javax.swing.*;
-import java.awt.*;
+public class Main {
 
+    public static void main(String args[]) {
+//Instead of names of books I am going to do Authors.
 
-class InnerButton {
+        List<String> authors = new ArrayList<>();
+        authors.add("Christine Feehan");
+        authors.add("Nora Roberts");
+        authors.add("Bella Forrest");
+        authors.add("Fern Michaels");
+        authors.add("Susan Wiggs");
 
-    JFrame frame;
-    JButton b;
+        System.out.println("From first to last original list " + authors);
 
-    //All this is from Exercise p. 395 from book!!
-    public static void main(String[] args) {
-        InnerButton gui = new innerButton();
-        gui.go();
+        Collections.reverse(authors); // finely got it right.
+
+        System.out.println("Reversed list: " + authors);
+
+        List<String> output = reverseListRecursively(authors);
+        System.out.println("Reversed Authors, and reversed again: " + output);
+
     }
 
-    public void go() {
-        frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        b = new JButton("A");
-        b.addActionListener();
-
-        frame.getContentPane().add(BorderLayout.SOUTH, B);
-        frame.setSize(200, 100);
-        frame.setVisible(true);
-    }
-
-    class BListener extends ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            if (b.getText() .equals("A")) {
-                b.setText("B");
-            } else {
-                b.setText("A");
-
-            }
+    private static List<String> reverseListRecursively(List<String> list) {
+        if (list.size() <= 1) {
+            return list;  //don't for the return or it will not like it.
         }
 
-    }
+        List<String> reversed = new ArrayList<>();
+
+        reversed.add(list.get(list.size() - 1)); //should last element
+        reversed.addAll(reverseListRecursively(list.subList(0, list.size() - 1)));
+        return reversed;
+    }  // made some errors on the way. I got this d*** thing to work.
 }
