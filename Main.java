@@ -1,42 +1,19 @@
 package com.company;
-// redoing  for class, hope I get it right
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Main {
 
-    public static void main(String args[]) {
-//Instead of names of books I am going to do Authors.
-
-        List<String> authors = new ArrayList<>();
-        authors.add("Christine Feehan");
-        authors.add("Nora Roberts");
-        authors.add("Bella Forrest");
-        authors.add("Fern Michaels");
-        authors.add("Susan Wiggs");
-
-        System.out.println("From first to last original list " + authors);
-
-        Collections.reverse(authors); // finely got it right.
-
-        System.out.println("Reversed list: " + authors);
-
-        List<String> output = reverseListRecursively(authors);
-        System.out.println("Reversed Authors, and reversed again: " + output);
-
+    public static void main(String[] args) {
+        String col1 = "blue";
+        String col2 = "yellow";
+        setName(col1,col2);
     }
 
-    private static List<String> reverseListRecursively(List<String> list) {
-        if (list.size() <= 1) {
-            return list;  //don't for the return or it will not like it.
+    private static void setName(String  col1, String col2,) {
+        //private int number;
+
+        if (col1 == "blue" && col2 == "yellow") {
+            throw new IllegalArgumentException();
         }
-
-        List<String> reversed = new ArrayList<>();
-
-        reversed.add(list.get(list.size() - 1)); //should last element
-        reversed.addAll(reverseListRecursively(list.subList(0, list.size() - 1)));
-        return reversed;
-    }  // made some errors on the way. I got this d*** thing to work.
+        System.out.println("Type two primary Colors: ");
+    }
 }
